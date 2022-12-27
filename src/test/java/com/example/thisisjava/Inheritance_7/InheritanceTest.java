@@ -23,4 +23,12 @@ class InheritanceTest {
         Person p2 = new Student("김길동", 10);
         exService.instanceofExample(p2);
     }
+
+    @Test
+    public void 추상클래스_테스트() {
+        SmartPhone smartPhone = new SmartPhone("홍길동");
+        smartPhone.trunOn();
+        smartPhone.internetSearch();
+        smartPhone.trunOff();
+    }
 }
