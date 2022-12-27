@@ -4,16 +4,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
-class VehicleTest {
+class InheritanceTest {
 
     @Autowired
     private ExService exService;
 
     @Test
-    public void 테스트() {
+    public void 매개변수_다형성_테스트() {
         exService.ex1();
+    }
+
+    @Test
+    public void instanceOf_테스트() {
+        Person p1 = new Person("홍길동");
+        exService.instanceofExample(p1);
+
+        Person p2 = new Student("김길동", 10);
+        exService.instanceofExample(p2);
     }
 }

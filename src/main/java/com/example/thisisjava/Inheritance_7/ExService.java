@@ -20,4 +20,27 @@ public class ExService {
         Bus bus  = new Bus();
         driver1.drive(bus); // 오 .. 자식 객체를 넣어도 된다 !!
     }
+
+    /**
+     * 객체 타입 확인
+     */
+    public void checkSameObject(Vehicle vehicle) {
+        // instanceof 로 값이 true 일 경우 강제 타입 변환이 가능하다는 것을 의미한다.
+        if (vehicle instanceof Bus) {
+            Bus bus = (Bus) vehicle;
+        }
+    }
+
+    public void instanceofExample(Person person) {
+        System.out.println("name: " + person.name);
+        person.walk();
+
+        if (person instanceof Student) {
+            // Student 객체일 경우 강제 타입 변환
+            Student student = (Student) person;
+            // Student 객체만 가지고 있는 필드 및 메소드 사용
+            System.out.println("studentNo: " + student.studentNo);
+            student.study();
+        }
+    }
 }
