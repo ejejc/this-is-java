@@ -43,4 +43,8 @@ public class ExService {
             student.study();
         }
     }
+
+    public void abstractMethod(Animal animal) {
+        animal.sound();
+    }
 }

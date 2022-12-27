@@ -31,4 +31,17 @@ class InheritanceTest {
         smartPhone.internetSearch();
         smartPhone.trunOff();
     }
+
+    @Test
+    public void 추상메소드_테스트() {
+        Dog dog = new Dog();
+        dog.sound();
+
+        Cat cat = new Cat();
+        cat.sound();
+
+        // 자동 타입 변환도 가능
+        exService.abstractMethod(new Dog());
+        exService.abstractMethod(new Cat());
+    }
 }
