@@ -8,5 +8,8 @@ public interface RemoteControl {
     int MAX_VOLUMN = 10;
     int MIN_VOLUMN = 0;
 
+    // 추상 메소드 선언
     public void trunOn();
+    public void trunOff();
+    public void setVolume(int volume);
 }
