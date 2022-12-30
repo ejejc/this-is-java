@@ -52,4 +52,15 @@ class InterfaceTest {
         // 정적 메소드 호출
         RemoteControl.changeBattery();
     }
+
+    @Test
+    public void private_메소드_static_private_메소드_테스트() {
+        Service service = new ServiceImpl();
+
+        service.defaultMethod1();
+        service.defaultMethod2();
+
+        Service.staticMethod1();
+        Service.staticMethod2();
+    }
 }
