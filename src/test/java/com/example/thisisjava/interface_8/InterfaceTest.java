@@ -15,4 +15,10 @@ class InterfaceTest {
         rc = new Audio();
         rc.trunOn();
     }
+
+    @Test
+    public void 인터페이스_상수_테스트() {
+        System.out.println("리모콘 최대 볼륨: " + RemoteControl.MAX_VOLUMN);
+        System.out.println("리모콘 최저 볼륨: " + RemoteControl.MIN_VOLUMN);
+    }
 }
