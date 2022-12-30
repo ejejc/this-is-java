@@ -36,4 +36,17 @@ class InterfaceTest {
         rc.setVolume(5);
         rc.trunOff();
     }
+
+    @Test
+    public void default_메소드_테스트() {
+        RemoteControl rc;
+
+        rc = new Television();
+        rc.trunOn();
+        rc.setVolume(5);
+
+        // 디폴트 메소드 호출
+        rc.setMute(true);
+        rc.setMute(false);
+    }
 }
