@@ -72,4 +72,23 @@ class InterfaceTest {
         Searchable searchable = new SmartTelevision();
         searchable.search("https://www.naver.com");
     }
+
+    @Test
+    public void 인터페이스_상속_테스트() {
+        InterfaceImplC interfaceImplC = new InterfaceImplC();
+
+        InterfaceA interfaceA = interfaceImplC;
+        interfaceA.methodA();
+        // methodB or methodC 호출 불가
+
+        InterfaceB interfaceB = interfaceImplC;
+        interfaceB.methodB();
+        // methodA or methodC 호출 불가
+
+        // 인터페이스A,B를 상속받은 자식 인터페이스C는 모두 호출 가능
+        InterfaceC interfaceC = interfaceImplC;
+        interfaceC.methodA();
+        interfaceC.methodB();
+        interfaceC.methodC();
+    }
 }
