@@ -63,4 +63,13 @@ class InterfaceTest {
         Service.staticMethod1();
         Service.staticMethod2();
     }
+
+    @Test
+    public void 다중_인터페이스_테스트() {
+        RemoteControl rc = new SmartTelevision();
+        rc.trunOn();
+        rc.trunOff();
+        Searchable searchable = new SmartTelevision();
+        searchable.search("https://www.naver.com");
+    }
 }
