@@ -91,4 +91,14 @@ class InterfaceTest {
         interfaceC.methodB();
         interfaceC.methodC();
     }
+
+    @Test
+    public void 필드_다형성_테스트() {
+        Car car = new Car();
+        car.run();
+
+        car.tire1 = new KumhoTire();
+        car.tire2 = new HankookTire();
+        car.run();
+    }
 }
