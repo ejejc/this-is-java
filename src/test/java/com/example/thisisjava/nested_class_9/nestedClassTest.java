@@ -13,4 +13,9 @@ class nestedClassTest {
         // A 인스턴스 메소드 호출
         a.useB();
     }
-}
+
+    @Test
+    public void 바깥_클래스의_객체_접근_테스트() {
+        Extract extract = new Extract();
+        extract.useB();
+    }}
