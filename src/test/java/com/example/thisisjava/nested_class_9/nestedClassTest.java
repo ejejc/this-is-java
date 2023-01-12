@@ -18,4 +18,18 @@ class nestedClassTest {
     public void 바깥_클래스의_객체_접근_테스트() {
         Extract extract = new Extract();
         extract.useB();
-    }}
+    }
+
+    @Test
+    public void 매개변수_다형성_테스트() {
+        // Driver 객체 생성
+        Driver driver = new Driver();
+
+        // Vehicle의 구현 객체 생성
+        Bus bus = new Bus();
+        Taxi taxi = new Taxi();
+
+        driver.driver(bus);
+        driver.driver(taxi);
+    }
+}
