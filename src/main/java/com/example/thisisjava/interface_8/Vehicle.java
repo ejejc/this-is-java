@@ -1,4 +1,4 @@
-package com.example.thisisjava.nested_class_9;
+package com.example.thisisjava.interface_8;
 
 public interface Vehicle {
     // 추상 메소드
