@@ -18,4 +18,16 @@ public class ExceptionExService {
             System.out.println("마무리 실행");
         }
     }
+
+    /**
+     * 컴파일 예외 발생 예제
+     */
+    public void classExceptionEx() {
+        try {
+            Class.forName("java.lang.String");
+            System.out.println("java.lang.String 클래스가 존재합니다.");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
