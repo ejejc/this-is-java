@@ -1,5 +1,6 @@
 package com.example.thisisjava.exception_ex_11;
 
+import com.example.thisisjava.nested_class_9.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,6 +46,20 @@ class ExceptionExServiceTest {
             String data2 = res2.read2();
         } catch (Exception e) {
             System.out.println("예외 처리: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void 사용자_예외_처리() {
+        Account account = new Account();
+        account.deposit(10000);;
+        System.out.println("예금액: " + account.getBalance());
+
+        try {
+            account.withdraw(30000);
+        } catch (Exception e) {
+            String msg = e.getMessage();
+            System.out.println(msg);
         }
     }
 }
