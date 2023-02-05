@@ -4,7 +4,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
-import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,6 +83,20 @@ class StudyTest {
         });
     }
 
+    @Test
+    @DisplayName("태깅 테스트") // 테스트 이름을 좀 더 쉽고 간결하게 제공하도록 도와주는 어노테이션
+    @Tag("fast")
+    void create_new_study_taging() {
+        System.out.println("create1");
+    }
+
+    @Test
+    @DisplayName("태깅 테스트_2") // 테스트 이름을 좀 더 쉽고 간결하게 제공하도록 도와주는 어노테이션
+    @Tag("slow")
+    void create_new_study_taging_2() {
+        System.out.println("create2");
+    }
+    /**
     /**
      * 모든 테스트 들이 시작하기 전에 딱 한번 실행되는 메서드
      */
