@@ -1,12 +1,15 @@
 package com.example.thisisjava.test_ex;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 /**
  * 클래스에 모든 메소드 들에 적용된다. [ _ 로 표기 되어 있는 부분을 ' ' 공백으로 치환한다는 의미]
@@ -17,6 +20,21 @@ class StudyTest {
     @Test
     @DisplayName("스터디 만들기") // 테스트 이름을 좀 더 쉽고 간결하게 제공하도록 도와주는 어노테이션
     void create_new_study() {
+        /**
+         * 특정 환경 및 특정 os에서만 테스트가 돌아가도록 하기 위해서 assumeTrue를 사용
+         */
+        String env = System.getenv("TEST_ENV");
+        assumeTrue("LOCAL".equalsIgnoreCase(env));
+
+        // assumingThat
+        assumingThat("Local".equalsIgnoreCase(env), () -> {
+            // 환경이 local일 경우 실행하는 함수
+        });
+
+        assumingThat("Stage".equalsIgnoreCase(env), () -> {
+            // 환경이 Stage일 경우 실행하는 함수
+        });
+
         Study study = new Study(10);
         assertAll(
                 () -> assertNotNull(study),
@@ -31,6 +49,14 @@ class StudyTest {
 
     @Test
     //@Disabled - 테스트를 진행하지 않고 싶을 경우 사용
+    @EnabledOnOs({OS.MAC, OS.LINUX}) // 특정 os에서만 작동하도록
+    @EnabledOnJre({JRE.JAVA_11}) // 특정 자바 버전에서만 작동하도록 설정
+    @EnabledIfEnvironmentVariable(named = "TEST_ENV", matches = "local") // 위의 코드로 작성된 것을 간단하게 어노테이션을 사용하여 특정 환경별 작동 여부를 설정할 수 있다.
+    /*
+        그 외 어노테이션
+        @EnabledIf()
+        @EnabledIfSystemProperty()
+    */
     void create_new_study_again() {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Study(-10));
         String msg = e.getMessage();
