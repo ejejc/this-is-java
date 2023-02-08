@@ -50,4 +50,19 @@ class BoxTest {
         car.run();
     }
 
+    @Test
+    public void 제네릭_타입_파라미터_비교_테스트() {
+        Box box1 = new Box();   // Object 형
+        box1.content = "100";   // String 형
+
+        Box box2 = new Box();
+        box2.content = "100";
+
+        Box box3 = new Box();
+        box3.content = 100;
+
+        Assertions.assertEquals(true, box1.compare(box2));
+        Assertions.assertEquals(false, box1.compare(box3));
+    }
+
 }
