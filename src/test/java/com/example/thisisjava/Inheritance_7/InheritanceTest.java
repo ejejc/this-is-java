@@ -36,6 +36,7 @@ class InheritanceTest {
     public void 추상메소드_테스트() {
         Dog dog = new Dog();
         dog.sound();
+        dog.breathe();
 
         Cat cat = new Cat();
         cat.sound();
