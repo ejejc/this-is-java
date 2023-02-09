@@ -86,4 +86,20 @@ class BoxTest {
         return box;
     }
 
+    @Test
+    public void 제한된_파라미터_테스트() {
+        boolean result1 = compare(10, 20);
+        Assertions.assertEquals(false, result1);
+
+        boolean result2 = compare(4.5, 4.5);
+        Assertions.assertEquals(true, result2);
+    }
+
+    public static <T extends Number> boolean compare(T t1, T t2) {
+        double v1 = t1.doubleValue();
+        double v2 = t2.doubleValue();
+
+        return (v1 == v2);
+    }
+
 }
