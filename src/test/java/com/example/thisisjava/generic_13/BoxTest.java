@@ -65,4 +65,25 @@ class BoxTest {
         Assertions.assertEquals(false, box1.compare(box3));
     }
 
+    @Test
+    public void 제네릭_메소드_테스트() {
+        Box<Integer> box1 = boxing(100);
+        int intValue = box1.getContent();
+        Assertions.assertEquals(100, intValue);
+
+        Box<String> box2 = boxing("홍길동");
+        String strValue = box2.getContent();
+        Assertions.assertEquals("홍길동", strValue);
+    }
+
+    /**
+     * 선언부 즉, 반환 타입 앞에 <> 기호를 추가하고 타입 파라미터를 정의하면
+     * 리턴 타입과 매개변수 타입에서 사용한다.
+     */
+    public static <T> Box<T> boxing(T t) {
+        Box<T> box = new Box<>();
+        box.setContent(t);
+        return box;
+    }
+
 }
